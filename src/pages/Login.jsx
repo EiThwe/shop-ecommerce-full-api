@@ -1,0 +1,59 @@
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../feature/api/authApi";
+import { addUser } from "../feature/service/authSlice";
+
+const Login = () => {
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [login] = useLoginMutation();
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    console.log("Reach Here");
+    const user = { email, password };
+    const { data } = await login(user);
+    dispatch(addUser({user:data?.data,token:data?.token}));
+    console.log(data);
+    if (data?.success) {
+      nav("/");
+    }
+  };
+  return (
+    <div className="w-screen h-screen flex flex-col gap-5 justify-center items-center bg-gray-200">
+      <h1 className="text-2xl text-gray-800 text-center">
+        Log In To Your Account
+      </h1>
+      <form
+        action=""
+        onSubmit={loginHandler}
+        className="bg-white border rounded-md shadow-md w-96 p-5 flex flex-col gap-3"
+      >
+        <label htmlFor="email">Email Address</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full h-10 bg-gray-200 border border-gray-300 rounded"
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full h-10 bg-gray-200 border border-gray-300 rounded"
+        />
+        <button
+          type="submit"
+          className="px-3 py-2 w-full h-10 bg-gray-800 text-white border rounded my-3"
+        >
+          LOG IN
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
