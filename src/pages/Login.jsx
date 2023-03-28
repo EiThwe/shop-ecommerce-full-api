@@ -7,8 +7,8 @@ import { addUser } from "../feature/service/authSlice";
 const Login = () => {
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("thwethwehtun@gmail.com");
+  const [password, setPassword] = useState("1122334455");
   const [login] = useLoginMutation();
   const loginHandler = async (e) => {
     e.preventDefault();
