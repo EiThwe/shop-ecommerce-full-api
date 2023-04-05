@@ -3,18 +3,21 @@ import React from "react";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import ProductNavBar from "../components/ProductNavBar";
+import Products from "../components/Products";
+import Cart from "../components/Cart";
 
 const Dashboard = () => {
   const data = JSON.parse(Cookies.get("user"));
   console.log(data);
   return (
-    <div className="w-screen min-h-screen bg-gray-200">
+    <div className=" bg-gray-200">
       <Navbar />
-      <Hero/>
-      <div className="grid grid-cols-4 m-5">
-        <div>
-          <Card />
-        </div>
+      <Hero />
+      <div className=" bg-white p-14">
+        <ProductNavBar />
+        <Products />
+       
       </div>
     </div>
   );

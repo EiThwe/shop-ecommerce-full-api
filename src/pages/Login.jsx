@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../feature/api/authApi";
 import { addUser } from "../feature/service/authSlice";
+import {Link} from "react-router-dom"
 
 const Login = () => {
+  const [showLoading,setShowLoading] = useState(false);
   const nav = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("thwethwehtun@gmail.com");
@@ -15,7 +17,8 @@ const Login = () => {
     console.log("Reach Here");
     const user = { email, password };
     const { data } = await login(user);
-    dispatch(addUser({user:data?.data,token:data?.token}));
+    // setShowLoading(isLoading);
+    dispatch(addUser({ user: data?.data, token: data?.token }));
     console.log(data);
     if (data?.success) {
       nav("/");
@@ -51,6 +54,12 @@ const Login = () => {
         >
           LOG IN
         </button>
+        <div className="flex justify-between items-center">
+          <p className="text-gray-600">Don't have an account?</p>
+          <Link to="/signup">
+            <p className="underline text-gray-800 hover:cursor-pointer">Sign Up</p>
+          </Link>
+        </div>
       </form>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignupMutation } from "../feature/api/authApi";
 import { countries, days, months, years } from "../utils/data";
+import {Link} from "react-router-dom";
 
 const SignUp = () => {
   const [first_name, setFirst_name] = useState("");
@@ -214,9 +215,12 @@ const SignUp = () => {
           >
             SIGN UP
           </button>
-          <a href="" className="text-sm underline text-center">
-            Have an account already?
-          </a>
+          <div className="flex justify-between items-center">
+          <p className="text-gray-600">Have an account already?</p>
+          <Link to="/login">
+            <p className="underline text-gray-800 hover::text-white hover:cursor-pointer">Log In</p>
+          </Link>
+        </div>
         </form>
       </div>
     </div>

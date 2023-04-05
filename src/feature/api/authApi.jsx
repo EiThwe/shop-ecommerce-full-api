@@ -22,7 +22,7 @@ export const authApi = createApi({
             body: user,
         }),
         invalidatesTags: ["authApi"]
-      })
+      }),
   }),
 });
 export const {useSignupMutation,useLoginMutation} = authApi;
