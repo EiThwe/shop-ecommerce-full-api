@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import CartDesign from "./CartDesign";
 
 const Cart = ({ showCart, setShowCart }) => {
-  const {cart} = useSelector((state)=>state.cartSlice);
+  const { cart } = useSelector((state) => state.cartSlice);
+  const totalPrice = cart.reduce((pv, cv) => pv + cv.price * cv.quantity, 0);
   console.log(cart);
   return (
     <div
@@ -23,9 +24,21 @@ const Cart = ({ showCart, setShowCart }) => {
               <HiXMark />
             </button>
           </div>
-         <div className="flex flex-col gap-3">
-         {cart?.map(item=> <CartDesign item = {item} key={item.id}/>)}
-         </div>
+          <div className="flex flex-col gap-3">
+            {cart?.map((item) => (
+              <CartDesign item={item} key={item.id} />
+            ))}
+          </div>
+
+          {cart.length > 0 && (
+            <div className="">
+              <hr className="w-full h-[2px] bg-gray-800" />
+              <div className="flex justify-between p-5">
+                <h1 className="text-lg">Total</h1>
+                <p className="text-lg">${totalPrice}</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

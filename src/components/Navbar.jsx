@@ -5,12 +5,14 @@ import { HiUserCircle } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Cookies from "js-cookie";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../feature/service/authSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 import Cart from "./Cart";
 
 const Navbar = () => {
+  const { cart } = useSelector((state) => state.cartSlice);
+  const totalQuantity  = cart.reduce((pv,cv)=>pv+cv.quantity,0);
   const [showCart, setShowCart] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const user = JSON.parse(Cookies.get("user"));
@@ -21,7 +23,7 @@ const Navbar = () => {
     nav("/login");
   };
   return (
-    <nav className=" bg-white p-4 shadow-sm uppercase font-bold absolute top-0 left-0 z-10 w-full">
+    <nav className=" bg-white p-4 shadow-sm uppercase font-bold fixed top-0 left-0 z-10 w-full">
       <div className="flex justify-around items-center gap-10">
         <div className="flex  gap-10 text-xs text-gray-400">
           <a href="#" className="active ">
@@ -40,11 +42,16 @@ const Navbar = () => {
             search
           </span>
           <button
-            className="flex gap-1 items-center"
+            className="flex gap-1 items-center text-md relative"
             onClick={() => setShowCart(true)}
           >
             <BsCart2 className="text-sm" />
-            cart
+            <p className="uppercase">cart</p>
+            {cart.length > 0 && (
+              <span className="absolute -top-4 left-14 px-[5px] py-[1px] rounded-md bg-gray-800 text-white text-xs">
+                {totalQuantity}
+              </span>
+            )}
           </button>
 
           <div className="flex flex-col">
@@ -53,7 +60,7 @@ const Navbar = () => {
               onClick={() => setShowDropdown(!showDropdown)}
             >
               <HiUserCircle className="text-lg" />
-              {user?.firstName}
+              <p className="uppercase"> {user?.firstName}</p>
               <IoMdArrowDropdown className="text-lg" />
             </button>
             {showDropdown && (

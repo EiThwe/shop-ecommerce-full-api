@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import Pagination from "./Pagination";
 
 const Products = () => {
-  const [page,setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const { data, isLoading } = useGetProductsQuery(page);
   console.log(data, isLoading);
   const products = data?.data;
@@ -15,12 +15,10 @@ const Products = () => {
       {isLoading && <Loading />}
       <div className="grid grid-cols-4 gap-2 m-5">
         {products?.map((product) => (
-          <div key={product.id} className="mb-3">
-            <Card key={product.id} product={product} />
-          </div>
+          <Card key={product.id} product={product} />
         ))}
       </div>
-      <Pagination page={page} setPage={setPage}/>
+      <Pagination page={page} setPage={setPage} />
     </>
   );
 };
