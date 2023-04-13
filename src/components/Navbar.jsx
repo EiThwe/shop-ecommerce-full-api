@@ -96,8 +96,17 @@ window.addEventListener("resize",()=>{
             </div>
           </div>
           <div className="flex items-center md:hidden gap-5 sm:text-xl text-3xl sm:text-gray-800 text-black">
-            <button>
-              <BsCart2 />
+          <button
+              className="relative"
+              onClick={() => setShowCart(true)}
+            >
+              <BsCart2  />
+           
+              {cart.length > 0 && (
+                <span className="absolute -top-3 left-7 px-[5px] py-[1px] rounded-md bg-gray-800 text-white text-xs">
+                  {totalQuantity}
+                </span>
+              )}
             </button>
             <button>
               <HiUserCircle />

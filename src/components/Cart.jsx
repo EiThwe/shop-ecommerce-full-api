@@ -15,8 +15,8 @@ const Cart = ({ showCart, setShowCart }) => {
           : "translate-x-[100%] opacity-0"
       } flex transition-all `}
     >
-      <div className="w-3/5 h-full "></div>
-      <div className="w-2/5 h-full">
+      <div className="md:w-3/5 sm:w-1/2 w-0 h-full "></div>
+      <div className="sm:w-1/2 md:2/5 w-full h-full">
         <div className="w-full h-full bg-white opacity-100 border-l border-gray-800 border-opacity-5 shadow-md rounded-tl-xl">
           <div className="w-full text-gray-800 p-4 flex items-center justify-between">
             <h1 className="text-xl font-bold text-gray-800">Cart</h1>
