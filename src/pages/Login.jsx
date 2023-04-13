@@ -39,13 +39,16 @@ const Login = () => {
         onSubmit={loginHandler}
         className="bg-white border rounded-md shadow-md w-96 p-5 flex flex-col gap-3"
       >
-        <label htmlFor="email">Email Address</label>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email">Email Address</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full h-10 bg-gray-200 border border-gray-300 rounded p-2"
         />
+        </div>
+        <div className="flex flex-col gap-2">
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -53,6 +56,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           className="w-full h-10 bg-gray-200 border border-gray-300 rounded p-2"
         />
+        </div>
         <div className="flex justify-between items-end text-xs">
           <div className="flex gap-1 items-center">
             <input type="checkbox" name="remember" />
@@ -68,7 +72,7 @@ const Login = () => {
         >
           sign in
         </button>
-        <div className="w-full border-b-[1px] border-gray-500 flex justify-center items-center my-5">
+        <div className="w-full border-b-[1px] border-gray-500 flex justify-center items-center my-4">
           <div className="h-[10px] bg-white translate-y-[4px] text-xs px-1 flex justify-center items-center">or Continue With</div>
         </div>
         <div className="grid grid-cols-3 gap-3 h-10 text-xl">
