@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { BsCart2 } from "react-icons/bs";
 import { HiUserCircle } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { ImMenu3 } from "react-icons/im";
+import { ImMenu3,ImMenu4 } from "react-icons/im";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../feature/service/authSlice";
@@ -16,6 +16,7 @@ import SideBar from "./SideBar";
 const Navbar = () => {
   const { cart } = useSelector((state) => state.cartSlice);
   const totalQuantity = cart.reduce((pv, cv) => pv + cv.quantity, 0);
+  const [showSideBar,setShowSideBar] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const user = JSON.parse(Cookies.get("user"));
@@ -25,9 +26,18 @@ const Navbar = () => {
     dispatch(removeUser());
     nav("/login");
   };
+
+useEffect(()=>{
+window.addEventListener("resize",()=>{
+  // console.log(window.innerWidth);
+  if(window.innerWidth > 820){
+    setShowSideBar(false);
+  }
+})
+},[])
   return (
     <>
-      <SideBar />
+      <SideBar showSideBar={showSideBar} />
       <nav className=" bg-white sm:py-4 px-4 py-2 md:shadow-md shadow-xl uppercase font-[900] fixed top-0 left-0  w-full z-20">
         <div className="flex justify-between md:justify-around items-center gap-10">
           <div className="md:flex hidden gap-5 lg:gap-10 text-xs text-gray-400">
@@ -92,9 +102,8 @@ const Navbar = () => {
             <button>
               <HiUserCircle />
             </button>
-            {/* <button><HiUserCircle/></button> */}
-            <button>
-              <ImMenu3 />
+            <button onClick={()=> setShowSideBar(!showSideBar)}>
+              {showSideBar? <ImMenu4/> : <ImMenu3/>}
             </button>
           </div>
         </div>
