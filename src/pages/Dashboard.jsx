@@ -15,7 +15,7 @@ const Dashboard = () => {
       <Navbar />
       <Hero />
       <div className=" bg-white ">
-        {/* <ProductNavBar /> */}
+        <ProductNavBar />
         <Products />
       </div>
     </div>

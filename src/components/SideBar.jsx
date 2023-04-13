@@ -3,7 +3,7 @@ import {ImSearch} from "react-icons/im";
 
 const SideBar = ({showSideBar}) => {
   return (
-    <div className={`w-full p-5 fixed sm:top-14 top-10 left-0 bg-white bg-opacity-40 backdrop-blur-xl z-10 ${showSideBar? "translate-y-0" : "-translate-y-[100%]"} transition-all md:hidden block`}>
+    <div className={`w-full p-5 fixed top-16 left-0 bg-white bg-opacity-40 backdrop-blur-xl z-10 ${showSideBar? "translate-y-0" : "-translate-y-[100%]"} transition-all md:hidden block`}>
       <div className="flex flex-col xs:items-start items-center text-sm gap-3">
         <a href="#" className="active ">
           Home
