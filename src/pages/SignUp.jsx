@@ -41,7 +41,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className=" w-screen min-h-screen flex justify-center bg-gray-200 p-5">
+    <div className="w-screen min-h-screen flex justify-center bg-gray-200 p-5">
       <div className=" flex flex-col gap-3">
         <h1 className="text-center text-2xl font-semibold uppercase text-gray-800">
           Shop
@@ -52,7 +52,7 @@ const SignUp = () => {
         <form
           onSubmit={onSubmitHandler}
           action=""
-          className="bg-white shadow-md w-[500px] p-10 text-gray-700 flex flex-col gap-5"
+          className="bg-white shadow-md sm:w-[500px] w-[400px] p-10 text-gray-700 flex flex-col gap-5"
         >
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-2 items-start">

@@ -108,10 +108,29 @@ window.addEventListener("resize",()=>{
                 </span>
               )}
             </button>
-            <button>
-              <HiUserCircle />
-            </button>
-            <button onClick={()=> setShowSideBar(!showSideBar)}>
+            <div className="flex flex-col">
+              <button
+                className="flex items-center"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <HiUserCircle/>
+                <IoMdArrowDropdown className="sm:text-xl text-lg"/>
+              </button>
+              {showDropdown && (
+                <div className="relative">
+                  <div className="absolute px-5 py-2 bg-white top-2 border border-black rounded-md border-opacity-30 flex flex-col items-center">
+                    <button
+                      className="flex items-center gap-1"
+                      onClick={logoutHandler}
+                    >
+                      <HiOutlineLogout className="text-base" />
+                      <p className="text-sm">Logout</p>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            <button className="sm:text-2xl text-4xl" onClick={()=> setShowSideBar(!showSideBar)}>
               {showSideBar? <ImMenu4/> : <ImMenu3/>}
             </button>
           </div>
