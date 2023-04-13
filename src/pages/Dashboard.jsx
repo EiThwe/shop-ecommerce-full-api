@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <div className=" bg-gray-200">
       <Navbar />
-      {/* <Hero /> */}
+      <Hero />
       <div className=" bg-white ">
         {/* <ProductNavBar /> */}
         <Products />

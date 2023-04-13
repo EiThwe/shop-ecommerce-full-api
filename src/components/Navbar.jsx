@@ -38,7 +38,7 @@ window.addEventListener("resize",()=>{
   return (
     <>
       <SideBar showSideBar={showSideBar} />
-      <nav className=" bg-white sm:py-4 px-4 py-3 md:shadow-md shadow-xl uppercase font-[900] fixed top-0 left-0  w-full z-20">
+      <nav className=" bg-white py-4 px-4 md:shadow-md shadow-xl uppercase font-[900] sticky top-0 left-0  w-full z-20">
         <div className="flex justify-between md:justify-around items-center gap-10">
           <div className="md:flex hidden gap-5 lg:gap-10 text-xs text-gray-400">
             <a href="#" className="active ">
@@ -49,7 +49,7 @@ window.addEventListener("resize",()=>{
             <a href="#">Elements</a>
           </div>
           <div>
-            <h1 className="text-xl text-lg font-[900] sm:text-gray-800 text-black">
+            <h1 className="sm:text-xl text-3xl font-[900] sm:text-gray-800 text-black">
               Shop
             </h1>
           </div>
@@ -95,7 +95,7 @@ window.addEventListener("resize",()=>{
               )}
             </div>
           </div>
-          <div className="flex items-center md:hidden gap-5 text-xl sm:text-gray-800 text-black">
+          <div className="flex items-center md:hidden gap-5 sm:text-xl text-3xl sm:text-gray-800 text-black">
             <button>
               <BsCart2 />
             </button>

@@ -11,7 +11,7 @@ const Pagination = ({page,setPage}) => {
         setPage(page+1)
     }
   return (
-    <div className="flex gap-1 justify-center items-center">
+    <div className="flex gap-1 justify-center items-center my-5">
       <button className="border border-gray-800 rounded-md p-2 w-10 h-10  hover:bg-gray-800 hover:text-white" onClick={prevHandler}>
         <IoIosArrowBack />
       </button>
