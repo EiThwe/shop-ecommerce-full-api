@@ -13,14 +13,13 @@ const Dashboard = () => {
   return (
     <div className=" bg-gray-200">
       <Navbar />
-      <Hero />
-      <div className=" bg-white p-14">
-        <ProductNavBar />
+      {/* <Hero /> */}
+      <div className=" bg-white ">
+        {/* <ProductNavBar /> */}
         <Products />
-       
       </div>
     </div>
-  );
+  )
 };
 
 export default Dashboard;

@@ -4,7 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        shippori:["Shippori Mincho B1", "serif"],
+        shippori: ["Shippori Mincho B1", "serif"],
+      },
+      screens: {
+        xs: "400px",
+        md: "821px",
       },
     },
   },
