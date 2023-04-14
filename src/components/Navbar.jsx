@@ -4,7 +4,7 @@ import { BsCart2 } from "react-icons/bs";
 import { HiUserCircle } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { ImMenu3,ImMenu4 } from "react-icons/im";
+import { ImMenu3, ImMenu4 } from "react-icons/im";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../feature/service/authSlice";
@@ -16,7 +16,7 @@ import SideBar from "./SideBar";
 const Navbar = () => {
   const { cart } = useSelector((state) => state.cartSlice);
   const totalQuantity = cart.reduce((pv, cv) => pv + cv.quantity, 0);
-  const [showSideBar,setShowSideBar] = useState(false);
+  const [showSideBar, setShowSideBar] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const user = JSON.parse(Cookies.get("user"));
@@ -27,18 +27,18 @@ const Navbar = () => {
     nav("/login");
   };
 
-useEffect(()=>{
-window.addEventListener("resize",()=>{
-  // console.log(window.innerWidth);
-  if(window.innerWidth > 820){
-    setShowSideBar(false);
-  }
-})
-},[])
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      // console.log(window.innerWidth);
+      if (window.innerWidth > 820) {
+        setShowSideBar(false);
+      }
+    });
+  }, []);
   return (
     <>
       <SideBar showSideBar={showSideBar} />
-      <nav className=" bg-white py-4 px-4 md:shadow-md shadow-xl uppercase font-[900] sticky top-0 left-0  w-full z-20">
+      <nav className=" bg-white py-4 xxs:px-4 px-2 md:shadow-md shadow-xl uppercase font-[900] sticky top-0 left-0  w-full z-20">
         <div className="flex justify-between md:justify-around items-center gap-10">
           <div className="md:flex hidden gap-5 lg:gap-10 text-xs text-gray-400">
             <a href="#" className="active ">
@@ -49,7 +49,7 @@ window.addEventListener("resize",()=>{
             <a href="#">Elements</a>
           </div>
           <div>
-            <h1 className="sm:text-xl text-3xl font-[900] sm:text-gray-800 text-black">
+            <h1 className="sm:text-xl xxs:text-3xl text-2xl font-[900] sm:text-gray-800 text-black">
               Shop
             </h1>
           </div>
@@ -95,26 +95,25 @@ window.addEventListener("resize",()=>{
               )}
             </div>
           </div>
-          <div className="flex items-center md:hidden gap-5 sm:text-xl text-3xl sm:text-gray-800 text-black">
-          <button
-              className="relative"
-              onClick={() => setShowCart(true)}
-            >
-              <BsCart2  />
-           
+
+          <div className="flex items-center md:hidden xxs:gap-5 gap-3 sm:text-xl xxs:text-3xl text-2xl sm:text-gray-800 text-black">
+            <button className="relative" onClick={() => setShowCart(true)}>
+              <BsCart2 />
+
               {cart.length > 0 && (
                 <span className="absolute -top-3 left-7 px-[5px] py-[1px] rounded-md bg-gray-800 text-white text-xs">
                   {totalQuantity}
                 </span>
               )}
             </button>
+
             <div className="flex flex-col">
               <button
                 className="flex items-center"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                <HiUserCircle/>
-                <IoMdArrowDropdown className="sm:text-xl text-lg"/>
+                <HiUserCircle />
+                <IoMdArrowDropdown className="sm:text-xl xxs:text-lg text-xl" />
               </button>
               {showDropdown && (
                 <div className="relative">
@@ -130,8 +129,11 @@ window.addEventListener("resize",()=>{
                 </div>
               )}
             </div>
-            <button className="sm:text-2xl text-4xl" onClick={()=> setShowSideBar(!showSideBar)}>
-              {showSideBar? <ImMenu4/> : <ImMenu3/>}
+            <button
+              className="sm:text-2xl xxs:text-4xl text-3xl"
+              onClick={() => setShowSideBar(!showSideBar)}
+            >
+              {showSideBar ? <ImMenu4 /> : <ImMenu3 />}
             </button>
           </div>
         </div>

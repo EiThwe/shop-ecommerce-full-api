@@ -13,7 +13,8 @@ const Products = () => {
   return (
     <>
       {isLoading && <Loading />}
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2 grid-cols-1 xs:gap-2 gap-5 md:m-5">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2 grid-cols-1 
+      xs:gap-2 gap-5 md:m-5">
         {products?.map((product) => (
           <Card key={product.id} product={product} />
         ))}

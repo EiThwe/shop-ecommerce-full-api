@@ -7,12 +7,11 @@ module.exports = {
         shippori: ["Shippori Mincho B1", "serif"],
       },
       screens: {
+        xxs: "300px",
         xs: "400px",
         md: "821px",
       },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-  ],
+  plugins: [],
 };
