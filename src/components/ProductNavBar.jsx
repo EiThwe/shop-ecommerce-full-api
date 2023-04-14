@@ -4,7 +4,7 @@ import { shopCategories } from "../utils/data";
 
 const ProductNavBar = () => {
   return (
-    <nav className=" bg-white px-10 py-10 shadow-sm uppercase font-bold w-full sm:overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-100 overflow-x-scroll">
+    <nav className=" bg-white px-10 py-10 shadow-sm uppercase font-bold w-full sm:overflow-x-hidden overflow-x-scroll">
       <div className="flex sm:gap-5 gap-10 justify-between items-center w-auto flex-nowrap">
         <div className="flex sm:gap-5 gap-10 sm:text-xs text-[10px]  text-gray-400 flex-nowrap">
           {shopCategories.map((category, index) => (
