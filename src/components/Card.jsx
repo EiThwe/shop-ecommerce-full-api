@@ -15,13 +15,15 @@ const Card = ({ product }) => {
   };
   return (
     <div className=" bg-gray-100 p-5 sm:hover:shadow-2xl sm:hover:-translate-y-1 transition-all duration-100 ease-in-out relative">
+      <div className="w-full h-[275px] flex justify-center items-center">
       <img src={product?.images[0]} alt="" className="w-full" />
+      </div>
 
       <div className="flex flex-col items-center gap-3 w-full">
         <h1 className="uppercase text-center font-bold text-[16px] text-gray-800">
           {product?.title}
         </h1>
-        <p className="truncate w-full text-xs text-gray-400">
+        <p className="truncate w-full text-xs text-gray-400 text-center">
           {product?.description}
         </p>
         <p className=" font-bold text-[14px] text-gray-800">
